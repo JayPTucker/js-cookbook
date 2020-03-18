@@ -16,6 +16,7 @@ $.ajax(settings).done(function (response) {
 });
 
 
+// AJAX CALL FOR GETTING THE RECIPE INFO BY THE ID
 
 var settings = {
 	"async": true,
