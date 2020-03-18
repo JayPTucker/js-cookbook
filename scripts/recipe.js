@@ -13,6 +13,9 @@ var settings = {
 
 $.ajax(settings).done(function (response) {
 	console.log(response);
+
+	
+
 });
 
 
@@ -31,4 +34,24 @@ var settings = {
 
 $.ajax(settings).done(function (response) {
 	console.log(response);
+
+
+	// GRAB TITLE OF SELECTED DISH
+	console.log(response.title);
+
+	// GRAB PICTURE OF SELECTED DISH
+	console.log(response.image);
+
+	// GRAB DESCRIPTION OF SELECTED DISH
+	console.log(response.summary);
+
+	// GRAB INGREDIENTS OF SELECTED DISH
+	for ( var i = 0; i < response.extendedIngredients.length; i++) {
+	console.log(response.extendedIngredients[i].originalString);
+	};
+
+	// GRAB COOKING INSTRUCTIONS OF SELECTED DISH
+	console.log(response.instructions);
+
+
 });
