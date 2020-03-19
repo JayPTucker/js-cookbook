@@ -3,7 +3,7 @@
 var settings = {
 	"async": true,
 	"crossDomain": true,
-	"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=flour%252Ccinnamon",
+	"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=biscuits%252C%20cinnamon%252C%20sugar",
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
@@ -13,9 +13,6 @@ var settings = {
 
 $.ajax(settings).done(function (response) {
 	console.log(response);
-
-	
-
 });
 
 
@@ -24,7 +21,7 @@ $.ajax(settings).done(function (response) {
 var settings = {
 	"async": true,
 	"crossDomain": true,
-	"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/1348203/information",
+	"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/1036801/information",
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
