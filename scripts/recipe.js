@@ -37,12 +37,14 @@ searchBtn.on("click", function(e) {
 
 		var searchInput = $(numArray[i]);
 
-		var userInput = searchInput.val().trim().toLowerCase();
+		var userInput = (searchInput.val().trim().toLowerCase()) + "%252C";
 		inputArray.push(userInput);
 
 		console.log(userInput);
 		console.log(inputArray);
 	};
+
+	firstCall();
 
 });
 
@@ -62,36 +64,50 @@ addBtn.on("click", function(e) {
 
 
 
-// 
+// Grab each user input ingredient
 
 
 
 // AJAX CALL FOR GETTING THE RECIPE ID
 
-var settings = {
-	"async": true,
-	"crossDomain": true,
-	"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=biscuits%252C%20bananas%252C%20cinnamon", //%252C%20 between every word
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-		"x-rapidapi-key": "8cf712f16dmsh2a112cebaf69ed6p1d6b2djsn121e0beeafed"
-	}
-};
+function firstCall() {
 
-$.ajax(settings).done(function (response) {
-	
+	for (var i = 0; i < inputArray.length; i++) {
 
-	for (var i = 0; i < 10; i++) {
+		var ingredient = inputArray[i];
 
-		var id = response[i].id;
-		idArray.push(id);
+		console.log(ingredient);
+
+		var settings = {
+			"async": true,
+			"crossDomain": true,
+			"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=" + ingredient, //%252C between every word
+			"method": "GET",
+			"headers": {
+				"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+				"x-rapidapi-key": "8cf712f16dmsh2a112cebaf69ed6p1d6b2djsn121e0beeafed"
+			}
+		};
 
 	};
 
-	secondCall();
 
-});
+
+	$.ajax(settings).done(function (response) {
+		
+
+		for (var i = 0; i < 10; i++) {
+
+			var id = response[i].id;
+			idArray.push(id);
+
+		};
+
+		secondCall();
+
+	});
+
+};
 
 // AJAX CALL FOR GETTING THE RECIPE INFO BY THE ID
 function secondCall() {
@@ -109,29 +125,28 @@ function secondCall() {
 				"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
 				"x-rapidapi-key": "8cf712f16dmsh2a112cebaf69ed6p1d6b2djsn121e0beeafed"
 			}
-		}
+		};
 
 		$.ajax(settings).done(function (response) {
 
 			// GRAB TITLE OF SELECTED DISH
-			console.log(response.title);
+			var title = response.title;
 
 			// GRAB PICTURE OF SELECTED DISH
-			console.log(response.image);
+			var img = response.image;
 
 			// GRAB DESCRIPTION OF SELECTED DISH
-			console.log(response.summary);
+			var info = response.summary;
 
 			// GRAB INGREDIENTS OF SELECTED DISH
 			for ( var i = 0; i < response.extendedIngredients.length; i++) {
 
-			console.log(response.extendedIngredients[i].originalString);
+			var ingredients = response.extendedIngredients[i].originalString;
 
 			};
 
 			// GRAB COOKING INSTRUCTIONS OF SELECTED DISH
-			console.log(response.instructions);
-
+			var instructions = response.instructions;
 
 		});
 
