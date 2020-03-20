@@ -1,14 +1,25 @@
 
 // Array to hold the 10 grabbed ids from first api call
 
-var idArray = [];
+var idArray    = [];
+
+// Array for user input values
 
 var inputArray = [];
+
+// Variables for naming the id of each newly created input tags sequentially
+
+var searchNum  = 1;
+
+var startNum   = 1;
+
+// Array for holding the id value of each input tag on the page
+
+var numArray   = ["#search-0"];
 
 
 // Grab input box and button for finding recipes
 
-var searchInput = $("#search");
 
 var searchBtn   = $("#search-btn");
 
@@ -22,10 +33,16 @@ searchBtn.on("click", function(e) {
 
 	e.preventDefault();
 
-	var userInput = searchInput.val().trim().toLowerCase();
-	inputArray.push(userInput);
+	for (var i = 0; i < numArray.length; i++) {
 
-	console.log(inputArray);
+		var searchInput = $(numArray[i]);
+
+		var userInput = searchInput.val().trim().toLowerCase();
+		inputArray.push(userInput);
+
+		console.log(userInput);
+		console.log(inputArray);
+	};
 
 });
 
@@ -33,16 +50,21 @@ addBtn.on("click", function(e) {
 
 	e.preventDefault();
 
-	var newInput = $("<input>").attr("id", "search");
-	inputBox.append(newInput);
+	var newInput = $("<input>");
 
+	newInput.attr("id", "search-" + (searchNum++));
+
+	numArray.push("#search-" + (startNum++));
+
+	inputBox.append(newInput);
+	
 })
 
 
 
-// Variables for searched ingredients
+// 
 
-var ingredients = "";
+
 
 // AJAX CALL FOR GETTING THE RECIPE ID
 
