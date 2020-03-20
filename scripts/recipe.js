@@ -17,9 +17,7 @@ var startNum   = 1;
 
 var numArray   = ["#search-0"];
 
-
 // Grab input box and button for finding recipes
-
 
 var searchBtn   = $("#search-btn");
 
@@ -60,13 +58,7 @@ addBtn.on("click", function(e) {
 
 	inputBox.append(newInput);
 	
-})
-
-
-
-// Grab each user input ingredient
-
-
+});
 
 // AJAX CALL FOR GETTING THE RECIPE ID
 
@@ -90,8 +82,6 @@ function firstCall() {
 		};
 
 	};
-
-
 
 	$.ajax(settings).done(function (response) {
 		
@@ -153,3 +143,19 @@ function secondCall() {
 	};
 
 };
+
+// Sample div layout for potential cards holding each dish option
+
+{/* <div class="card horizontal">
+    <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="https://spoonacular.com/recipeImages/933310-556x370.jpg">
+    </div>
+    <div class="card-content">
+		<span class="card-title activator grey-text text-darken-4">Apple Tart<i class="material-icons right">Click for info</i></span>
+		<p><a href="#">Click for recipe</a></p>
+    </div>
+    <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+</div> */}
