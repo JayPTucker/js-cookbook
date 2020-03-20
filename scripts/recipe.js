@@ -3,7 +3,7 @@
 var settings = {
 	"async": true,
 	"crossDomain": true,
-	"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=biscuits%252C%20cinnamon%252C%20sugar",
+	"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=biscuits%252C%20bananas%252C%20cinnamon", //%252C%20 between every word
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
