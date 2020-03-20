@@ -44,10 +44,8 @@ function showPosition(position) {
       weatherDiv.append(printIcon);
 
       var currentTemp = ((response.main.temp) * (9/5) - 459.67).toFixed(2);
-      var printCT = $("<p>").text(currentTemp + " °F");
+      var printCT = $("<p class='weatherText'>").text(currentTemp + " °F");
       weatherDiv.append(printCT);
-
-      var currentCity = 
 
       $(".weatherDiv").append(weatherDiv);
   })
