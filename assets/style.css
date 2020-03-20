@@ -1,5 +1,14 @@
-.body {
+body {
     font-family: 'Patrick Hand', cursive;
+    background-color: rgb(214, 214, 214) !important;
+}
+
+
+.mainBody {
+    background-color: white !important;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
 }
 
 .header {
