@@ -5,7 +5,8 @@ var idArray    = [];
 
 // ARRAY FOR USER INPUT VALUES
 
-var inputArray = [];
+// var inputArray = [];
+var userInput  = "";
 
 // VARIABLES FOR NAMING THE ID OF EACH NEWLY CREATED INPUT TAGS SEQUENTIALLY
 
@@ -15,7 +16,7 @@ var startNum   = 1;
 
 // ARRAY FOR HOLDING THE ID VALUE OF EACH INPUT TAG ON THE PAGE
 
-var numArray   = ["#search-0"];
+// var numArray   = ["#search-0"];
 
 // GRAB INPUT BOX AND BUTTONS FOR FINDING RECIPES
 
@@ -23,26 +24,26 @@ var searchBtn   = $("#search-btn");
 
 var inputBox    = $("#input-box");
 
-var addBtn      = $("#add");
+// var addBtn      = $("#add");
 
 // GRAB RECIPE LIST COLUMN FROM HTML AND SET TO A VARIABLE
 var list = $(".recipe-list");
 
 // ADD EVENT LISTENERS
 
-addBtn.on("click", function(e) {
+// addBtn.on("click", function(e) {
 
-	e.preventDefault();
+// 	e.preventDefault();
 
-	var newInput = $("<input>");
+// 	var newInput = $("<input>");
 
-	newInput.attr("id", "search-" + (searchNum++));
+// 	newInput.attr("id", "search-" + (searchNum++));
 
-	numArray.push("#search-" + (startNum++));
+// 	numArray.push("#search-" + (startNum++));
 
-	inputBox.append(newInput);
+// 	inputBox.append(newInput);
 	
-});
+// });
 
 searchBtn.on("click", function(e) {
 
@@ -52,17 +53,17 @@ searchBtn.on("click", function(e) {
 	e.preventDefault();
 
 	// FOR LOOP THROUGH EACH APPENDED INGREDIENT DIV AND SET TO USER INPUT VARIABLE
-	for (var i = 0; i < numArray.length; i++) {
+	// for (var i = 0; i < numArray.length; i++) {
 
-		var searchInput = $(numArray[i]);
+		var searchInput = $("#search-0");
 
 		// PUSH TO INPUT ARRAY
-		var userInput = (searchInput.val().trim().toLowerCase());
+		var newInput = (searchInput.val().trim().toLowerCase());
 
-			if (userInput !== "") {
-				inputArray.push(userInput);
+			if (newInput !== "") {
+				userInput = newInput;
 			};
-	};
+	// };
 
 	firstCall();
 
@@ -73,12 +74,14 @@ searchBtn.on("click", function(e) {
 function firstCall() {
 
 
-	var ingredient = inputArray.join("%252C");
+	var ingredients = userInput;
+
+	console.log(ingredients);
 
 		var settings = {
 			"async": true,
 			"crossDomain": true,
-			"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=" + ingredient, //%252C between every word
+			"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=" + ingredients, //%252C between every word
 			"method": "GET",
 			"headers": {
 				"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
@@ -94,14 +97,14 @@ function firstCall() {
 		// FOR LOOP THROUGH ALL ID NUMBERS AND PUT ALL 10 INTO ID ARRAY
 		for (var i = 0; i < 10; i++) {
 
-			// IF STATEMENT TO STOP FROM REPEATED RECIPE OF THIS DISH (SHOWS UP TOO MANY TIMES)
-			if (response[i].title !== "Sugared Cranberries") {
+			// // IF STATEMENT TO STOP FROM REPEATED RECIPE OF THIS DISH (SHOWS UP TOO MANY TIMES)
+			// if (response[i].title !== "Sugared Cranberries") {
 
 			// PUSH TO ID ARRAY
 			var id = response[i].id;
 			idArray.push(id);
 
-			};
+			// };
 
 		};
 
