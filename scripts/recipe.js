@@ -57,9 +57,11 @@ searchBtn.on("click", function(e) {
 		var searchInput = $(numArray[i]);
 
 		// PUSH TO INPUT ARRAY
-		var userInput = (searchInput.val().trim().toLowerCase()) + "%252C";
-		inputArray.push(userInput);
+		var userInput = (searchInput.val().trim().toLowerCase());
 
+			if (userInput !== "") {
+				inputArray.push(userInput);
+			};
 	};
 
 	firstCall();
@@ -71,9 +73,7 @@ searchBtn.on("click", function(e) {
 function firstCall() {
 
 
-	for (var i = 0; i < inputArray.length; i++) {
-
-		var ingredient = inputArray[i];
+	var ingredient = inputArray.join("%252C");
 
 		var settings = {
 			"async": true,
@@ -85,8 +85,6 @@ function firstCall() {
 				"x-rapidapi-key": "8cf712f16dmsh2a112cebaf69ed6p1d6b2djsn121e0beeafed"
 			}
 		};
-
-	};
 
 	$.ajax(settings).done(function (response) {
 		
@@ -157,7 +155,7 @@ function secondCall() {
 			var instructions = response.instructions;
 
 			// CREATE DIV FOR CARD AND SET TO VARIABLE. ADD CLASSES TO GIVE MATERIALIZE CSS CHARACTERISTICS
-			var card = $("<div>").addClass("card horizontal");
+			var card = $("<div>").addClass("card small horizontal");
 
 			// CREATE DIV FOR APPENDING IMG AND ADD CLASSES TO GIVE MATERIALIZE CSS
 			var imgDiv = $("<div>").addClass("card-image waves-effect waves-block waves-light");
@@ -176,7 +174,7 @@ function secondCall() {
 
 			// CREATE DIV TAG AND a TAG FOR LINK
 			var clickDiv = $("<div>").addClass("card-action");
-			var aTag = $("<a>").attr("href", "#").text("Click for Recipe");
+			var aTag = $("<a>").addClass("waves-effect waves-teal btn-flat").text("Click for Recipe");
 
 			// CREATE REVEAL INFO DIV 
 			var revealDiv = $("<div>").addClass("card-reveal");
@@ -211,3 +209,5 @@ function secondCall() {
 	};
 
 };
+
+// APPEND NEW CARD WITH RECIPE INFO, INGREDIENT LIST AND DIRECTION
