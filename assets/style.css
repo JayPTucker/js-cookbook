@@ -9,12 +9,14 @@ body {
     padding: 20px;
     border: 2px solid black;
     border-radius: 20px;
+    box-shadow: inset 0px 0px 20px black !important;
 }
 
 .header {
     background-color: rgb(182, 36, 36);
     text-align: center;
     outline: 3px solid black;
+    box-shadow: inset 0px 0px 10px black;
 }
 
 .JPTlogoImg {
@@ -66,7 +68,23 @@ p {
     transition: 0.4s;
 }
 
-.active {
-    font-size: 20px;
-    color: black;
+.card {
+    box-shadow: 0px 0px 10px black !important;
+    margin: 30px 0px !important;
+    border-radius: 20px !important;
+    background-color: rgb(240, 240, 240) !important;
+}
+
+.card-image {
+    padding: 10px !important;
+}
+
+.recipeImg {
+    border-radius: 20px !important;
+    box-shadow: 0px 0px 5px black !important;
+}
+
+.footer {
+    margin-top: 30px;
+    text-align: center !important;
 }

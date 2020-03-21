@@ -164,7 +164,7 @@ function secondCall() {
 			var imgDiv = $("<div>").addClass("card-image waves-effect waves-block waves-light");
 
 			// CREATE IMG TAG FOR PHOTO OF EACH CORRESPONDING RECIPE
-			var imgTag = $("<img>").addClass("activator").attr("src", img);
+			var imgTag = $("<img>").addClass("activator recipeImg").attr("src", img);
 
 			// CREATE DIV FOR STACKING CONTENT
 			var stackDiv = $("<div>").addClass("card-stacked");
