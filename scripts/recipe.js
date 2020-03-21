@@ -25,6 +25,9 @@ var inputBox    = $("#input-box");
 
 var addBtn      = $("#add");
 
+// GRAB RECIPE LIST COLUMN FROM HTML AND SET TO A VARIABLE
+var list = $(".recipe-list");
+
 // Add event listeners
 
 searchBtn.on("click", function(e) {
@@ -41,6 +44,9 @@ searchBtn.on("click", function(e) {
 		console.log(userInput);
 		console.log(inputArray);
 	};
+
+	// EMPTY THE LIST DIV BEFORE EACH SEARCH
+	list.empty();
 
 	firstCall();
 
@@ -138,24 +144,59 @@ function secondCall() {
 			// GRAB COOKING INSTRUCTIONS OF SELECTED DISH
 			var instructions = response.instructions;
 
+			// CREATE DIV FOR CARD AND SET TO VARIABLE. ADD CLASSES TO GIVE MATERIALIZE CSS CHARACTERISTICS
+			var card = $("<div>").addClass("card horizontal");
+
+			// CREATE DIV FOR APPENDING IMG AND ADD CLASSES TO GIVE MATERIALIZE CSS
+			var imgDiv = $("<div>").addClass("card-image waves-effect waves-block waves-light");
+
+			// CREATE IMG TAG FOR PHOTO OF EACH CORRESPONDING RECIPE
+			var imgTag = $("<img>").addClass("activator").attr("src", img);
+
+			// CREATE DIV FOR STACKING CONTENT
+			var stackDiv = $("<div>").addClass("card-stacked");
+
+			// CREATE CONTENT DIV FOR THE RECIPE CARD
+			var contentDiv = $("<div>").addClass("card-content");
+
+			// CREATE SPAN TAG FOR ADDING MATERIALIZE CSS TO CONTENT
+			var spanTag = $("<span>").addClass("card-title activator grey-text text-darken-4").text(title);
+
+			// CREATE DIV TAG AND a TAG FOR LINK
+			var clickDiv = $("<div>").addClass("card-action");
+			var aTag = $("<a>").attr("href", "#").text("Click for Recipe");
+
+			// CREATE REVEAL INFO DIV 
+			var revealDiv = $("<div>").addClass("card-reveal");
+
+			// CREATE SPAN TAG FOR ADDING MATERIALIZE CSS TO REVEAL CONTENT
+			var spanTag2 = $("<span>").addClass("card-title grey-text text-darken-4").text(title);
+
+			// CREATE i TAG FOR ADDING MATERIALIZE ICON
+			var iTag2 = $("<i>").addClass("material-icons right").text("close");
+
+			// CREATE p TAG FOR REVEAL DIV
+			var pTag2 = $("<p>").html(info);
+
+			// APPEND IMG TO IMGDIV, SPAN AND P TAG TO CONTENT DIV, SPAN AND P TAG TO REVEAL DIV
+			imgDiv.append(imgTag);
+			clickDiv.append(aTag);
+			contentDiv.append(spanTag, clickDiv);
+			spanTag2.append(iTag2);
+			revealDiv.append(spanTag2, pTag2);
+
+			// APPEND CONTENT DIV TO STACK DIV
+			stackDiv.append(contentDiv);
+
+			// APPEND IMGDIV, STACK DIV, AND REVEAL DIV TO CARD DIV
+			card.append(imgDiv, stackDiv, revealDiv);
+
+			// APPEND CARD TO LIST
+			list.append(card);
+
+
 		});
 
 	};
 
 };
-
-// Sample div layout for potential cards holding each dish option
-
-{/* <div class="card horizontal">
-    <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="https://spoonacular.com/recipeImages/933310-556x370.jpg">
-    </div>
-    <div class="card-content">
-		<span class="card-title activator grey-text text-darken-4">Apple Tart<i class="material-icons right">Click for info</i></span>
-		<p><a href="#">Click for recipe</a></p>
-    </div>
-    <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
-</div> */}
