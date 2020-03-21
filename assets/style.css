@@ -51,6 +51,22 @@ p {
 .weatherText {
     font-family: 'Pacifico', cursive;
     color: white;
-    text-shadow: 1px 1px 1px black;
-    margin: 20px;
+    text-shadow: 2px 2px 1px black;
+    font-size: 17px;
+}
+
+#add, #search-btn {
+    background-color: rgb(182, 36, 36);
+    transition: all .2s ease-in-out;
+}
+
+#add:hover, #search-btn:hover {
+    background-color: rgb(131, 10, 10);
+    transform: scale(1.1);
+    transition: 0.4s;
+}
+
+.active {
+    font-size: 20px;
+    color: black;
 }
