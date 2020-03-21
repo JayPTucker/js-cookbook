@@ -1,23 +1,23 @@
 
-// Array to hold the 10 grabbed ids from first api call
+// ARRAY TO HOLD THE 10 GRABBED IDS FROM FIRST API CALL
 
 var idArray    = [];
 
-// Array for user input values
+// ARRAY FOR USER INPUT VALUES
 
 var inputArray = [];
 
-// Variables for naming the id of each newly created input tags sequentially
+// VARIABLES FOR NAMING THE ID OF EACH NEWLY CREATED INPUT TAGS SEQUENTIALLY
 
 var searchNum  = 1;
 
 var startNum   = 1;
 
-// Array for holding the id value of each input tag on the page
+// ARRAY FOR HOLDING THE ID VALUE OF EACH INPUT TAG ON THE PAGE
 
 var numArray   = ["#search-0"];
 
-// Grab input box and button for finding recipes
+// GRAB INPUT BOX AND BUTTONS FOR FINDING RECIPES
 
 var searchBtn   = $("#search-btn");
 
@@ -28,29 +28,7 @@ var addBtn      = $("#add");
 // GRAB RECIPE LIST COLUMN FROM HTML AND SET TO A VARIABLE
 var list = $(".recipe-list");
 
-// Add event listeners
-
-searchBtn.on("click", function(e) {
-
-	e.preventDefault();
-
-	for (var i = 0; i < numArray.length; i++) {
-
-		var searchInput = $(numArray[i]);
-
-		var userInput = (searchInput.val().trim().toLowerCase()) + "%252C";
-		inputArray.push(userInput);
-
-		console.log(userInput);
-		console.log(inputArray);
-	};
-
-	// EMPTY THE LIST DIV BEFORE EACH SEARCH
-	list.empty();
-
-	firstCall();
-
-});
+// ADD EVENT LISTENERS
 
 addBtn.on("click", function(e) {
 
@@ -66,15 +44,36 @@ addBtn.on("click", function(e) {
 	
 });
 
+searchBtn.on("click", function(e) {
+
+	// EMPTY ARRAY BEFORE EACH NEW SEARCH
+	inputArray = [];
+
+	e.preventDefault();
+
+	// FOR LOOP THROUGH EACH APPENDED INGREDIENT DIV AND SET TO USER INPUT VARIABLE
+	for (var i = 0; i < numArray.length; i++) {
+
+		var searchInput = $(numArray[i]);
+
+		// PUSH TO INPUT ARRAY
+		var userInput = (searchInput.val().trim().toLowerCase()) + "%252C";
+		inputArray.push(userInput);
+
+	};
+
+	firstCall();
+
+});
+
 // AJAX CALL FOR GETTING THE RECIPE ID
 
 function firstCall() {
 
+
 	for (var i = 0; i < inputArray.length; i++) {
 
 		var ingredient = inputArray[i];
-
-		console.log(ingredient);
 
 		var settings = {
 			"async": true,
@@ -91,11 +90,20 @@ function firstCall() {
 
 	$.ajax(settings).done(function (response) {
 		
+		// EMPTY ID ARRAY BEFORE SECOND CALL
+		idArray = [];
 
+		// FOR LOOP THROUGH ALL ID NUMBERS AND PUT ALL 10 INTO ID ARRAY
 		for (var i = 0; i < 10; i++) {
 
+			// IF STATEMENT TO STOP FROM REPEATED RECIPE OF THIS DISH (SHOWS UP TOO MANY TIMES)
+			if (response[i].title !== "Sugared Cranberries") {
+
+			// PUSH TO ID ARRAY
 			var id = response[i].id;
 			idArray.push(id);
+
+			};
 
 		};
 
@@ -108,6 +116,10 @@ function firstCall() {
 // AJAX CALL FOR GETTING THE RECIPE INFO BY THE ID
 function secondCall() {
 
+	// EMPTY THE LIST DIV BEFORE EACH SEARCH
+	list.empty();
+
+	// FOR LOOP THROUGH ID ARRAY AND PUT EACH SEARCHED RECIPE INFO ON THE PAGE
 	for (var i = 0; i < idArray.length; i++) {
 
 		var idNum = idArray[i];
@@ -193,7 +205,6 @@ function secondCall() {
 
 			// APPEND CARD TO LIST
 			list.append(card);
-
 
 		});
 
