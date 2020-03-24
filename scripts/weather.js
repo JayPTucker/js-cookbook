@@ -32,7 +32,6 @@ function showPosition(position) {
       url: queryURL,
       method: "GET"
   }).then(function(response) {
-      console.log(response); 
 
       var weatherDiv = $(".weatherDiv");
       weatherDiv.text("");
