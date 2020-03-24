@@ -39,7 +39,5 @@ Below the Header you'll see a Search Box and some perameters to it.  All you hav
 - [W3Schools](https://www.w3schools.com/)
 - [StackOverflow](https://stackoverflow.com/)
 
-
-
 ## License:
 [Creative Commons License](https://creativecommons.org/licenses/by-nc-nd/4.0/)
