@@ -58,6 +58,12 @@ p {
     font-size: 17px;
 }
 
+/* SEARCH BOX PERAMETERS */
+.searchInfo {
+    color: black !important;
+    font-size: 20px !important;
+}
+
 /* THE SEARCH BUTTON */
 #search-btn {
     background-color: rgb(182, 36, 36);
