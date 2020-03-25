@@ -1,9 +1,15 @@
+/* BODY AND P TAGS START  */
 body {
     font-family: 'Patrick Hand', cursive;
     background-color: rgb(214, 214, 214) !important;
 }
 
+p {
+    margin: 0px !important
+}
+/* BODY AND P TAGS END */
 
+/* MAIN BODY */
 .mainBody {
     background-color: white !important;
     padding: 20px;
@@ -12,6 +18,7 @@ body {
     box-shadow: inset 0px 0px 20px black !important;
 }
 
+/* OUR HEADER */
 .header {
     background-color: rgb(182, 36, 36);
     text-align: center;
@@ -19,12 +26,7 @@ body {
     box-shadow: inset 0px 0px 10px black;
 }
 
-.JPTlogoImg {
-    width: 50px;
-    height: 50px;
-    margin-top: 17px;
-}
-
+/* WEBPAGE TITLE */
 .title {
     font-family: 'Pacifico', cursive;
     color: white;
@@ -32,6 +34,7 @@ body {
     font-size: 60px;
 }
 
+/* OUR INITIALS AT THE TOP LEFT OF THE SCREEN */
 .logoTitle {
     font-family: 'Pacifico', cursive;
     color: white;
@@ -45,11 +48,9 @@ body {
     transform: scale(1.8);
     transition: 0.4s;
 }
+/* END */
 
-p {
-    margin: 0px !important
-}
-
+/* WEATHER INFO TEXT */
 .weatherText {
     font-family: 'Pacifico', cursive;
     color: white;
@@ -57,17 +58,19 @@ p {
     font-size: 17px;
 }
 
-#add, #search-btn {
+/* THE SEARCH BUTTON */
+#search-btn {
     background-color: rgb(182, 36, 36);
     transition: all .2s ease-in-out;
 }
 
-#add:hover, #search-btn:hover {
+#search-btn:hover {
     background-color: rgb(131, 10, 10);
     transform: scale(1.1);
     transition: 0.4s;
 }
 
+/* THE RECIPE CARDS */
 .card {
     box-shadow: 0px 0px 10px black !important;
     margin: 30px 0px !important;
@@ -82,6 +85,7 @@ p {
     background-color: rgb(226, 226, 226) !important;
 }
 
+/* RECIPE CARD IMAGES */
 .card-image {
     padding: 10px !important;
 }
@@ -91,6 +95,7 @@ p {
     box-shadow: 0px 0px 5px black !important;
 }
 
+/* OUR FOOTER */
 .footer {
     margin-top: 30px;
     text-align: center !important;
