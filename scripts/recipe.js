@@ -14,36 +14,14 @@ var searchNum  = 1;
 
 var startNum   = 1;
 
-// ARRAY FOR HOLDING THE ID VALUE OF EACH INPUT TAG ON THE PAGE
-
-// var numArray   = ["#search-0"];
-
 // GRAB INPUT BOX AND BUTTONS FOR FINDING RECIPES
 
 var searchBtn   = $("#search-btn");
 
 var inputBox    = $("#input-box");
 
-// var addBtn      = $("#add");
-
 // GRAB RECIPE LIST COLUMN FROM HTML AND SET TO A VARIABLE
 var list = $(".recipe-list");
-
-// ADD EVENT LISTENERS
-
-// addBtn.on("click", function(e) {
-
-// 	e.preventDefault();
-
-// 	var newInput = $("<input>");
-
-// 	newInput.attr("id", "search-" + (searchNum++));
-
-// 	numArray.push("#search-" + (startNum++));
-
-// 	inputBox.append(newInput);
-	
-// });
 
 searchBtn.on("click", function(e) {
 
@@ -51,9 +29,6 @@ searchBtn.on("click", function(e) {
 	inputArray = [];
 
 	e.preventDefault();
-
-	// FOR LOOP THROUGH EACH APPENDED INGREDIENT DIV AND SET TO USER INPUT VARIABLE
-	// for (var i = 0; i < numArray.length; i++) {
 
 		var searchInput = $("#search-0");
 
@@ -63,7 +38,6 @@ searchBtn.on("click", function(e) {
 			if (newInput !== "") {
 				userInput = newInput;
 			};
-	// };
 
 	firstCall();
 
@@ -97,14 +71,9 @@ function firstCall() {
 		// FOR LOOP THROUGH ALL ID NUMBERS AND PUT ALL 10 INTO ID ARRAY
 		for (var i = 0; i < 10; i++) {
 
-			// // IF STATEMENT TO STOP FROM REPEATED RECIPE OF THIS DISH (SHOWS UP TOO MANY TIMES)
-			// if (response[i].title !== "Sugared Cranberries") {
-
 			// PUSH TO ID ARRAY
 			var id = response[i].id;
 			idArray.push(id);
-
-			// };
 
 		};
 
@@ -138,6 +107,8 @@ function secondCall() {
 
 		$.ajax(settings).done(function (response) {
 
+			console.log(response);
+
 			// GRAB TITLE OF SELECTED DISH
 			var title = response.title;
 
@@ -148,9 +119,11 @@ function secondCall() {
 			var info = response.summary;
 
 			// GRAB INGREDIENTS OF SELECTED DISH
+			var ingredArray = [];
 			for ( var i = 0; i < response.extendedIngredients.length; i++) {
 
 			var ingredients = response.extendedIngredients[i].originalString;
+			ingredArray.push("• " + ingredients +"<br>");
 
 			};
 
@@ -176,26 +149,22 @@ function secondCall() {
 			var spanTag = $("<span>").addClass("card-title activator grey-text text-darken-4").text(title);
 
 			// CREATE DIV TAG AND a TAG FOR LINK
-			var clickDiv = $("<div>").addClass("card-action");
-			var aTag = $("<a>").addClass("waves-effect waves-teal btn-flat").text("Click for Recipe");
+			// var clickDiv = $("<div>").addClass("card-action");
+			var aTag = $("<p>").addClass("truncate").html(info);
 
 			// CREATE REVEAL INFO DIV 
 			var revealDiv = $("<div>").addClass("card-reveal");
 
 			// CREATE SPAN TAG FOR ADDING MATERIALIZE CSS TO REVEAL CONTENT
-			var spanTag2 = $("<span>").addClass("card-title grey-text text-darken-4").text(title);
-
-			// CREATE i TAG FOR ADDING MATERIALIZE ICON
-			var iTag2 = $("<i>").addClass("material-icons right").text("close");
+			var spanTag2 = $("<p>").addClass("card-title grey-text text-darken-4 col l6").html(ingredArray);
 
 			// CREATE p TAG FOR REVEAL DIV
-			var pTag2 = $("<p>").html(info);
+			var pTag2 = $("<p>").addClass("col l6").text(instructions);
 
 			// APPEND IMG TO IMGDIV, SPAN AND P TAG TO CONTENT DIV, SPAN AND P TAG TO REVEAL DIV
 			imgDiv.append(imgTag);
-			clickDiv.append(aTag);
-			contentDiv.append(spanTag, clickDiv);
-			spanTag2.append(iTag2);
+			// clickDiv.append(aTag);
+			contentDiv.append(spanTag, aTag);
 			revealDiv.append(spanTag2, pTag2);
 
 			// APPEND CONTENT DIV TO STACK DIV
