@@ -79,6 +79,7 @@ p {
 .card:hover {
     transform: scale(1.07);
     transition: 0.4s;
+    background-color: rgb(226, 226, 226) !important;
 }
 
 .card-image {
