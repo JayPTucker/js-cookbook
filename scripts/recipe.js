@@ -107,8 +107,6 @@ function secondCall() {
 
 		$.ajax(settings).done(function (response) {
 
-			console.log(response);
-
 			// GRAB TITLE OF SELECTED DISH
 			var title = response.title;
 
@@ -149,8 +147,8 @@ function secondCall() {
 			var spanTag = $("<span>").addClass("card-title activator grey-text text-darken-4").text(title);
 
 			// CREATE DIV TAG AND a TAG FOR LINK
-			// var clickDiv = $("<div>").addClass("card-action");
-			var aTag = $("<p>").addClass("truncate").html(info);
+			var clickDiv = $("<div>").addClass("card-action");
+			var aTag = $("<a>").addClass("waves-effect waves-light btn modal-trigger").attr("href", "#" + response.id).text("Click for Summary");
 
 			// CREATE REVEAL INFO DIV 
 			var revealDiv = $("<div>").addClass("card-reveal");
@@ -161,10 +159,33 @@ function secondCall() {
 			// CREATE p TAG FOR REVEAL DIV
 			var pTag2 = $("<p>").addClass("col l6").text(instructions);
 
+			// CREATE MODAL STRUCTURE
+			var modalDiv = $("<div>").attr("id", response.id).addClass("modal");
+
+			var modalContent = $("<div>").addClass("modal-content");
+			var h4 = $("<h4>").text(title);
+			var pModal = $("<p>").html(info);
+
+			var footer = $("<div>").addClass("modal-footer");
+			var close = $("<a>").addClass("modal-close waves-effect waves-green btn-flat").attr("href", "#!").text("Close");
+
+			// APPEND MODAL CONTENT
+			modalContent.append(h4, pModal);
+
+			footer.append(close);
+
+			modalDiv.append(modalContent, footer);
+
+			$(".modal-append").append(modalDiv);
+
+			$(document).ready(function(){
+				$('.modal').modal();
+			  });
+
 			// APPEND IMG TO IMGDIV, SPAN AND P TAG TO CONTENT DIV, SPAN AND P TAG TO REVEAL DIV
 			imgDiv.append(imgTag);
-			// clickDiv.append(aTag);
-			contentDiv.append(spanTag, aTag);
+			clickDiv.append(aTag);
+			contentDiv.append(spanTag, clickDiv);
 			revealDiv.append(spanTag2, pTag2);
 
 			// APPEND CONTENT DIV TO STACK DIV
@@ -182,4 +203,4 @@ function secondCall() {
 
 };
 
-// APPEND NEW CARD WITH RECIPE INFO, INGREDIENT LIST AND DIRECTION
+
