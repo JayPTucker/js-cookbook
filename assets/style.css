@@ -73,6 +73,12 @@ p {
     margin: 30px 0px !important;
     border-radius: 20px !important;
     background-color: rgb(240, 240, 240) !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+.card:hover {
+    transform: scale(1.07);
+    transition: 0.4s;
 }
 
 .card-image {
