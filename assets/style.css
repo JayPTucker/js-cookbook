@@ -91,6 +91,21 @@ p {
     background-color: rgb(226, 226, 226) !important;
 }
 
+.recipeTitle {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 50px !important;
+    line-height: 40px !important;
+    transition: all 0.2s ease-in-out !important;
+    text-shadow: 0px 0px 10px rgb(136, 136, 136);
+    color: white !important;
+}
+
+.recipeTitle:hover {
+    transform: scale(1.2);
+    transition: 0.4s;
+}
+
 /* RECIPE CARD IMAGES */
 .card-image {
     padding: 10px !important;

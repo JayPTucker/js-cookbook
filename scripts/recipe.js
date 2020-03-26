@@ -144,7 +144,7 @@ function secondCall() {
 			var contentDiv = $("<div>").addClass("card-content");
 
 			// CREATE SPAN TAG FOR ADDING MATERIALIZE CSS TO CONTENT
-			var spanTag = $("<span>").addClass("card-title activator grey-text text-darken-4").text(title);
+			var spanTag = $("<span>").addClass("card-title recipeTitle activator grey-text text-darken-4").text(title);
 
 			// CREATE DIV TAG AND a TAG FOR LINK
 			var clickDiv = $("<div>").addClass("card-action");
