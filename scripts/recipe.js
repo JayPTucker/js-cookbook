@@ -3,9 +3,8 @@
 
 var idArray    = [];
 
-// ARRAY FOR USER INPUT VALUES
+// VARIABLE FOR USER INPUT
 
-// var inputArray = [];
 var userInput  = "";
 
 // VARIABLES FOR NAMING THE ID OF EACH NEWLY CREATED INPUT TAGS SEQUENTIALLY
@@ -49,8 +48,6 @@ function firstCall() {
 
 
 	var ingredients = userInput;
-
-	console.log(ingredients);
 
 		var settings = {
 			"async": true,
