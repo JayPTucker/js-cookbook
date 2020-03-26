@@ -5,12 +5,12 @@ Github Link: [Click me!](https://github.com/JayPTucker/js-cookbook)
 
 Jay Paul Tucker's Site:  [Click me!](https://jayptucker.github.io/)
 
-Jeffery McFarland's Site: [Click me!](https://jeffreymcfarland.github.io/)
+Jeffrey McFarland's Site: [Click me!](https://jeffreymcfarland.github.io/)
 
 ## Description:
 UPDATED (3/24/20):
 
-Welcome to J's Cookbook, a Project made by Jay Paul Tucker and Jeffery McFarland.  This Website is simply a Recipe book, but not like any NORMAL one, with J's Cookbook, you're able to search for Recipe's based on the ingedients that you HAVE currently.  You'll get a list of 10 Recipe's based on what Ingredients you input into the search box near the top of the site.  You may click on any of the one's that appeal to you and get plenty of information on them.  We also grabbed another API in order to display the Weather at the Top-Right of your screen, but you have to allow access to your location right as you visit the website for the first time.
+Welcome to J's Cookbook, a Project made by Jay Paul Tucker and Jeffrey McFarland.  This Website is simply a Recipe book, but not like any NORMAL one, with J's Cookbook, you're able to search for Recipe's based on the ingedients that you HAVE currently.  You'll get a list of 10 Recipe's based on what Ingredients you input into the search box near the top of the site.  You may click on any of the one's that appeal to you and get plenty of information on them.  We also grabbed another API in order to display the Weather at the Top-Right of your screen, but you have to allow access to your location right as you visit the website for the first time.
 
 ## Installation:
 1. Clone the file from [The GitHub Repository](https://github.com/JayPTucker/js-cookbook)
@@ -31,7 +31,7 @@ Below the Header you'll see a Search Box and some perameters to it.  All you hav
 
 ## Credits:
 - [Jay Paul Tucker](https://jayptucker.github.io)
-- [Jeffery McFarland](https://jeffreymcfarland.github.io/)
+- [Jeffrey McFarland](https://jeffreymcfarland.github.io/)
 
 - [MaterializeCSS](https://materializecss.com/)
 - [Open Weather API](https://openweathermap.org/api)
