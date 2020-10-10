@@ -3,7 +3,7 @@ Live Link:  [Click me!](https://jayptucker.github.io/js-cookbook/)
 
 Github Link: [Click me!](https://github.com/JayPTucker/js-cookbook)
 
-Jay Paul Tucker's Site:  [Click me!](https://jayptucker.github.io/)
+Jay Paul Tucker's Site:  [Click me!](https://www.jayptucker.com/)
 
 Jeffrey McFarland's Site: [Click me!](https://jeffreymcfarland.github.io/)
 
